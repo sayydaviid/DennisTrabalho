@@ -3,7 +3,7 @@ Professor: Denis Lima do Rosario
 Alunos:
 David Tavares - Matrícula: 202311140028
 Guilherme Sandim - Matrícula: 202311140021
-##Descrição do Trabalho
+## Descrição do Trabalho
 Este trabalho tem como objetivo implementar dois algoritmos utilizando conceitos de Filas e Pilhas em C++ com alocação dinâmica, conforme solicitado pelo curso de Estruturas de Dados. A implementação utiliza TADs (Tipos Abstratos de Dados) para estruturar a solução de cada problema.
 
 Questão 1: Controle de Decolagem de Aviões
@@ -22,14 +22,14 @@ Companhia aérea
 Destino
 A implementação utiliza uma Fila para gerenciar os aviões aguardando a decolagem.
 
-##Questão 2: Manipulação de Filas e Pilhas com Números Aleatórios
+## Questão 2: Manipulação de Filas e Pilhas com Números Aleatórios
 O programa lê uma sequência de números inteiros gerados aleatoriamente e os separa em duas filas:
 
 Fila PAR: Contém os números pares.
 Fila IMPAR: Contém os números ímpares.
 Ao final, os elementos são retirados alternadamente de cada fila e, dependendo do valor, são empilhados em uma Pilha. Se o número for positivo, ele é empilhado; se for negativo, o topo da pilha é removido. No final, o conteúdo da pilha é exibido.
 
-##Estrutura do Projeto
+## Estrutura do Projeto
 O código foi organizado em múltiplos arquivos, utilizando o conceito de TAD para garantir a modularidade e a separação das responsabilidades:
 
 Arquivos:
