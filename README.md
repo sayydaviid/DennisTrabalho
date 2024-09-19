@@ -4,7 +4,7 @@ Alunos:
 David Tavares - Matrícula: 202311140028
 Guilherme Sandim - Matrícula: 202311140021
 ## Descrição do Trabalho
-Este trabalho tem como objetivo implementar dois algoritmos utilizando conceitos de Filas e Pilhas em C++ com alocação dinâmica, conforme solicitado pelo curso de Estruturas de Dados. A implementação utiliza TADs (Tipos Abstratos de Dados) para estruturar a solução de cada problema.
+Este trabalho tem como objetivo implementar dois algoritmos utilizando conceitos de Filas e Pilhas em C++ com alocação dinâmica. 
 
 ## Questão 1
 Escreva um programa que simule o controle de uma pista de decolagem de aviões em um aeroporto. Neste programa, o usuário deve ser capaz de realizar as seguintes tarefas:
