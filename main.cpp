@@ -1,59 +1,57 @@
-#include "FilaDecolagem.hpp"
 #include <iostream>
-using namespace std;
+#include <cstdlib>
+#include <ctime>
+#include "Fila.hpp"
+#include "Pilha.hpp"
 
 int main() {
-    FilaDecolagem fila;
-    int opcao;
-    string nome, companhia, destino;
-    int identificador;
+    Fila filaPar;
+    Fila filaImpar;
+    Pilha pilha;
 
-    do {
-        cout << "Bem vindo ao aeroporto David Tavares e Guilherme Sandim, cujo numero de matricula é: 202311140028 & 202311140021" << endl;
-        cout << "\nControle de Decolagem" << endl;
-        cout << "1. Listar numero de avioes na fila" << endl;
-        cout << "2. Autorizar decolagem do primeiro aviao" << endl;
-        cout << "3. Adicionar um aviao à fila" << endl;
-        cout << "4. Listar todos os avioes na fila" << endl;
-        cout << "5. Mostrar o primeiro aviao da fila" << endl;
-        cout << "0. Sair" << endl;
-        cout << "Escolha uma opcao: ";
-        cin >> opcao;
+    srand(time(0));  // Seed para números aleatórios
 
-        switch (opcao) {
-            case 1:
-                cout << "Numero de avioes na fila de espera: " << endl;
-                fila.listarAvioes();
-                break;
-            case 2:
-                fila.autorizarDecolagem();
-                break;
-            case 3:
-                cout << "Digite o nome do aviao: ";
-                cin >> nome;
-                cout << "Digite o identificador do aviao: ";
-                cin >> identificador;
-                cout << "Digite a companhia aerea: ";
-                cin >> companhia;
-                cout << "Digite o destino: ";
-                cin >> destino;
-                fila.adicionarAviao(Aviao(nome, identificador, companhia, destino));
-                cout << "Aviao adicionado à fila de espera!" << endl;
-                break;
-            case 4:
-                fila.listarAvioes();
-                break;
-            case 5:
-                fila.listarPrimeiroAviao();
-                break;
-            case 0:
-                cout << "Encerrando sistema." << endl;
-                break;
-            default:
-                cout << "Opcao invalida." << endl;
-                break;
+    // Gerar números aleatórios e classificá-los como par ou ímpar
+    for (int i = 0; i < 10; i++) {  // Gerando 10 valores para simplificação
+        int num = rand() % 101 - 50;  // Gera números entre -50 e 50
+        std::cout << "Número gerado: " << num << std::endl;
+        
+        if (num % 2 == 0) {
+            filaPar.inserir(num);
+        } else {
+            filaImpar.inserir(num);
         }
-    } while (opcao != 0);
+    }
+
+    // Processar as filas alternadamente
+    bool turnoImpar = true;
+    while (!filaPar.vazia() || !filaImpar.vazia()) {
+        if (turnoImpar && !filaImpar.vazia()) {
+            int valor = filaImpar.retirar();
+            std::cout << "Retirado da fila ímpar: " << valor << std::endl;
+
+            if (valor > 0) {
+                pilha.empilhar(valor);
+            } else if (!pilha.vazia()) {
+                pilha.desempilhar();
+            }
+        } else if (!filaPar.vazia()) {
+            int valor = filaPar.retirar();
+            std::cout << "Retirado da fila par: " << valor << std::endl;
+
+            if (valor > 0) {
+                pilha.empilhar(valor);
+            } else if (!pilha.vazia()) {
+                pilha.desempilhar();
+            }
+        }
+
+        turnoImpar = !turnoImpar;  // Alterna entre ímpar e par
+    }
+
+    // Exibir o conteúdo da pilha
+    std::cout << "Conteúdo final da pilha: ";
+    pilha.imprimir();
 
     return 0;
 }
